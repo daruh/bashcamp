@@ -53,7 +53,7 @@ printf "$pre%s$post\n" "$@"
 # ./sa $var
 
 ## Pathname expansion
-./sa f*
+# ./sa f*
 
 ## Process substitution
 

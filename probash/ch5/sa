@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+pre=:
+post=:
+printf "$pre%s$post\n" "$@"
+
+# Parameter Expansion
+
+# $ var=
+# $ sa "${var:-default}"
+
+# $ var=
+# $ sa "${var-default}"
+
+defaultfile=$HOME/.bashrc
+## parse options here
+filename=${filename:-"$defaultfile"}

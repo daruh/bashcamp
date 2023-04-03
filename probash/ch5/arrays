@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+declare -A array
+
+for subscript in a b c d e
+  do 
+    array[$subscript]="$subscript $RANDOM"
+done
+array[$subscript]="$subscript $RANDOM"
