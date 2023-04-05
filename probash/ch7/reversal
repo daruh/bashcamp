@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+_revstr()
+{
+    var=$1
+    _REVSTR=
+    while [ -n "$var" ]
+    do
+     temp=${var#?}
+     _REVSTR=$temp${var%"$temp"}
+     var=$temp
+    done
+}
+
+_revstr "Hello world"
+printf "%s" $_REVSTR
