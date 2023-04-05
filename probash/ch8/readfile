@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+export kjv=$PWD/kjv.txt
+
+while read
+  do
+  printf "%s\n" "$REPLY"
+done < "$kjv"
