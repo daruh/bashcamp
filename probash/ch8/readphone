@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+file=$PWD/phones.txt
+while IFS=- read name phone
+do
+  printf "Name: %-10s\tPhone: %s\n" "$name" "$phone"
+done < "$file"
