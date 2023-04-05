@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+validint()
+{
+ case ${1#-} in
+   *[!0-9]*) false;;
+   *) true ;;
+ esac
+}
+
+if validint  $1
+then
+  printf "%15d: valid\n" $1
+ else
+ printf "%15d: invalid\n" $1
+fi
+
+
