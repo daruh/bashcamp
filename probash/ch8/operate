@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+for file in $(ls)
+    do
+        touch {zzz,xxx,yyy}\ a
+        for file in $(ls *\ *);
+            do echo "$file"; 
+done

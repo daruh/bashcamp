@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+for file in {a..z}$RANDOM
+do 
+  > $PWD/files/$file
+done

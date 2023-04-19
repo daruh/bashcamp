@@ -2,3 +2,5 @@
 .idea/modules.xml
 .idea/bashcamp.iml
 .idea/.gitignore
+/probash/ch8/files/
+/.idea/dataSources.xml

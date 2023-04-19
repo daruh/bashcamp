@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# boys="Brian,Carl,Dennis,Mike,Al"
+
+# printf "%s\n" $boys | cut -d, -f3
+
+IFS=,
+boyarray=( $boys )
+printf "%s\n" "${boyarray[2]}"

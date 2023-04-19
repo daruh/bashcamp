@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+kjv="kjv.txt"
+
+while read line
+do 
+  case $line in
+    *0[57]0:001:*) printf "%s\n" "${line:0:78}" ;;
+  esac
+done < "$kjv"
