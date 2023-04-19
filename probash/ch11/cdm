@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#: Title: select new directory from a menu of those already visited
+#: Synopsis: cdm
+#: Date:
+#: Version: 1.0
+#: Author: daruh
+#: Options: -c - ...
+#: -h - ...
+
+cdm() {
+  local dir IFS=$'\n' item
+  for dir in dirs; do
+    [ "$dir" = "$PWD" ] && continue
+    case ${item[*]} in
+    *"$dir:"*) ;;
+    *) item+=("$dir:cd '$dir'") ;;
+    esac
+  done
+  menu "${item[@]}" Quit:
+}
+

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#: Title: Call Up a Man Page and Search for a Pattern
+#: Synopsis: sman  arg
+#: Date: 4/19/2023
+#: Version: 1.0
+#: Author: daruh
+#: Options: -
+
+sman() {
+LESS="$LESS${2:+ +/$2}" man "$1"
+}
+

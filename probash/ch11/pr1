@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#: Title: Function to Print Its Argument One to a Line
+#: Synopsis: pr1
+#: Date: 
+#: Version: 1.0
+#: Author: daruh
+#: Options: -c - ...
+#: -h - ...
+
+pr1() {
+    :
+}
