@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#: Title: wfe - List words ending with PATTERN
+#: Synopsis: wfe [-c|-h|-v] REGEX
+#: Date: 2009-04-13
+#: Version: 1.0
+#: Author: Chris F.A. Johnson
+#: Options: -c - Include compound words
+#: -h - Print usage information
+#: -v - Print version number
+
+sa() {
+    pre=: post=:;
+    printf "$pre%s$post\n" "$@"
+}
+type -t echo printf sa time ls
+type -ap echo printf sa time
+type -P echo printf sa time
