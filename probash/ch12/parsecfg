@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#: Title: Parsing Configuration File
+#: Synopsis: parsecfg [] 
+#: Date: 4/20/2023
+#: Version: 1.0
+#: Author: daruh
+#: Options: -
+
+IFS=$'\n'
+file=words.cfg
+settings=( $( < "$file") )
+#eval "${settings[@]%%#*}"
+
+#for item in ${settings[@]} ; do
+#    printf "%s\n" $item
+#done
+
+comments=( "${settings[@]#*##}" )
+printf "%s\n" "${comments[@]}"
+

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#: Title: Parsing Configuration File with Comments
+#: Synopsis: parsecfgwithcomments [] 
+#: Date: 4/20/2023
+#: Version: 1.0
+#: Author: daruh
+#: Options: -
+
+file=words.cfg
+while read assignment x comment
+do
+if [ -n "$assignment" ]
+then
+printf "%20s: %s\n" "${assignment#*=}" "$comment"
+eval "$assignment"
+fi
+done < "$file"
