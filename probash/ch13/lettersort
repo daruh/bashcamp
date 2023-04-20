@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#: Title: Sort letters in $1, store in $2
+#: Synopsis: lettersort
+#: Date: 4/20/2023
+#: Version: 1.0
+#: Author: daruh
+#: Options: -
+
+lettersort() { #@ Sort letters in $1, store in $2
+  local letter string
+  declare -A letters
+  string=${1:?}
+  while [ -n "$string" ]; do
+    letter=${string:0:1}
+    letters["$letter"]=${letters["$letter"]}$letter
+    string=${string#?}
+  done
+  printf -v "${2:-_LETTERSORT}" "%s" "${letters[@]}"
+}
+
+lettersort triangle; printf "%s\n" "$_LETTERSORT"
