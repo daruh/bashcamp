@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#: Title: Reading an Array into Memory
+#: Synopsis: kjvinmemory [] 
+#: Date: 4/21/2023
+#: Version: 1.0
+#: Author: daruh
+#: Options: -
+
+unset array
+
+kjv="kjv.txt"
+
+IFS=$'\n'
+#array=( $(cat "$kjv") )
+#array=( < "$kjv" )
+mapfile -t array < "$kjv"
+printf "%s\n" "${array[@]}"
+
