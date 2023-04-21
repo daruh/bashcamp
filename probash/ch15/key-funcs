@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#: Title: Read a Single Key Press
+#: Synopsis: key-funcs [] 
+#: Date: 4/21/2023
+#: Version: 1.0
+#: Author: daruh
+#: Options: -
+
+ESC=$'\e'
+CSI=$'\e['
+
+_key() {
+    IFS= read -r -s -n1 -d '' "${1:-_KEY}"
+}

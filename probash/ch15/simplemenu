@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#: Title: Menu that Responds to a Single Key Press
+#: Synopsis: simplemenu
+#: Date: 4/21/2023
+#: Version: 1.0
+#: Author: daruh
+#: Options: -
+
+ESC=$'\e'
+CSI=$'\e['
+
+_key() {
+  IFS= read -r -s -n1 -d '' "${1:-_KEY}"
+}
+
+while :; do
+  printf "\n\n\t$bar\n"
+  printf "\t %d. %s\n" 1 "Do something" \
+    2 "Do something else" \
+    3 "Quit"
+  printf "\t%s\n" "$bar"
+
+  _key
+
+  case $_KEY in
+  1) printf "\n%s\n\n" Something ;;
+  2) printf "\n%s\n\n" "Something else" ;;
+  3) break ;;
+  *)
+    printf "\a\n%s\n\n" "Invalid choice; try again"
+    continue
+    ;;
+  esac
+  printf ">>> %s " "Press any key to continue"
+  _key
+done
