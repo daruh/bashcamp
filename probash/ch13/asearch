@@ -1,0 +1,30 @@
+#!/bin/bash
+#: Title: Search Elements of an Array for a String
+#: Synopsis: asearch arrayname string
+#: Date: 4/21/2023
+#: Version: 1.0
+#: Author: daruh
+#: Options: -
+
+asearch() { #@ Search for substring in array; results in array _asearch_elements
+  #@ USAGE: asearch arrayname string
+  local arrayname=$1 substring=$2 array
+  # shellcheck disable=SC1087
+  eval "array=( \"\${$arrayname[@]}\" )"
+  case ${array[*]} in
+  *"$substring"*) ;; ## it's there; drop through
+  *) return 1 ;;     ## not there; return error
+  esac
+  unset _asearch_elements
+  for subscript in "${!array[@]}"; do
+    case ${array[$subscript]} in
+    *"$substring"*)
+      _asearch_elements+=("${array[$subscript]}")
+      ;;
+    esac
+  done
+}
+
+capitals=( St Halifax Fredericton Charlottetown Quebec Toronto Winnipeg Regina Edmonton Victoria )
+
+asearch  capitals  Hal && printf "%s\n" "${_asearch_elements[@]}"
