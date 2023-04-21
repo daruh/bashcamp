@@ -1,0 +1,21 @@
+#!/bin/bash
+#: Title: Read, and Display Keystrokes Until Q Is Pressed
+#: Synopsis: keycapture
+#: Date: 4/21/2023
+#: Version: 1.0
+#: Author: daruh
+#: Options: -
+
+source ${PWD}/key_funcs
+source ${PWD}/get_key
+source ${PWD}/sa
+
+while :; do
+  get_key key
+  sa "${key}"
+  case $key in
+  q | Q)
+    break
+    ;;
+  esac
+done

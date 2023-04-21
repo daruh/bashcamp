@@ -1,0 +1,17 @@
+#!/bin/bash
+#: Title: Gets a Key and, if Necessary, Translates It to a Key Name
+#: Synopsis: get_key
+#: Date: 4/21/2023
+#: Version: 1.0
+#: Author: daruh
+#: Options: -
+
+get_key() {
+  _key
+  case $_KEY in
+  "$ESC")
+    _keys
+    _esc2key "$ESC$_KEYS" _KEY
+    ;;
+  esac
+}

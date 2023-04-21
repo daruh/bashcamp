@@ -1,7 +1,6 @@
 #!/bin/bash
-
 #: Title: Read a Single Key Press
-#: Synopsis: key-funcs [] 
+#: Synopsis: key_funcs []
 #: Date: 4/21/2023
 #: Version: 1.0
 #: Author: daruh

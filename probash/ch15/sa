@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#: Title: prints variables
+#: Synopsis: sa
+#: Date: 4/20/2023
+#: Version: 1.0
+#: Author: daruh
+#: Options: -
+
+
+sa() {
+  pre=:
+  post=:
+  printf "$pre%s$post\n" "$@"
+}

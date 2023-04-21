@@ -1,0 +1,41 @@
+#!/bin/bash
+
+#: Title: Translate a String to a Key Name
+#: Synopsis: _esc2key
+#: Date: 4/21/2023
+#: Version: 1.0
+#: Author: daruh
+#: Options: -
+
+_esc2key() {
+  case $1 in
+  ## Cursor keys
+  "$CSI"A | ${CSI}OA) _ESC2KEY=UP ;;
+  "$CSI"B | ${CSI}0B) _ESC2KEY=DOWN ;;
+  "$CSI"C | ${CSI}OC) _ESC2KEY=RIGHT ;;
+  "$CSI"D | ${CSI}OD) _ESC2KEY=LEFT ;;
+  ## Function keys (unshifted)
+  "$CSI"11~ | "$CSI["A | ${ESC}OP) _ESC2KEY=F1 ;;
+  "$CSI"12~ | "$CSI["B | ${ESC}OQ) _ESC2KEY=F2 ;;
+  "$CSI"13~ | "$CSI["C | ${ESC}OR) _ESC2KEY=F3 ;;
+  "$CSI"14~ | "$CSI["D | ${ESC}OS) _ESC2KEY=F4 ;;
+  "$CSI"15~ | "$CSI["E) _ESC2KEY=F5 ;;
+  "$CSI"17~ | "$CSI["F) _ESC2KEY=F6 ;;
+  "$CSI"18~) _ESC2KEY=F7 ;;
+  "$CSI"19~) _ESC2KEY=F8 ;;
+  "$CSI"20~) _ESC2KEY=F9 ;;
+  "$CSI"21~) _ESC2KEY=F10 ;;
+  "$CSI"23~) _ESC2KEY=F11 ;;
+  "$CSI"24~) _ESC2KEY=F12 ;;
+  ## Insert, Delete, Home, End, Page Up, Page Down
+  "$CSI"2~) _ESC2KEY=INS ;;
+  "$CSI"3~) _ESC2KEY=DEL ;;
+  "$CSI"[17]~ | "$CSI"H) _ESC2KEY=HOME ;;
+  "$CSI"[28]~ | "$CSI"F) _ESC2KEY=END ;;
+  "$CSI"5~) _ESC2KEY=PGUP ;;
+  "$CSI"6~) _ESC2KEY=PGDN ;;
+  ## Everything else; add other keys before this line
+  *) _ESC2KEY=UNKNOWN ;;
+  esac
+  [ -n "$2" ] && eval "$2=\$_ESC2KEY"
+}

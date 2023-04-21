@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#: Title: Store all waiting keypresses in $_KEYS
+#: Synopsis: keys
+#: Date: 4/21/2023
+#: Version: 1.0
+#: Author: daruh
+#: Options: -
+
+_keys() {
+    _KEYS=
+    __KX=
+
+    ESC_END=[a-zA-NP-Z~^\$@$ESC]
+
+    while :; do
+        IFS= read -rsn1 -d '' -t1 __KX
+        _KEYS=$_KEYS$__KX
+
+        case $__KX in
+        "" | $ESC_END ) break;;
+        esac
+    done
+}
+
