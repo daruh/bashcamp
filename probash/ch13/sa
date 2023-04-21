@@ -15,4 +15,4 @@ sa() {
 }
 #export sa
 
-#source  /c/SNOW/private_repos/bashcamp/probash/ch13/sa
+source  /c/SNOW/private_repos/bashcamp/probash/ch13/sa

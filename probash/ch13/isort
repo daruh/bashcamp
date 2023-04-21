@@ -1,0 +1,28 @@
+#!/bin/bash
+
+#: Title: Sort Command-Line Arguments
+#: Synopsis: isort
+#: Date: 4/20/2023
+#: Version: 1.0
+#: Author: daruh
+#: Options: -
+
+isort() {
+  local -a a
+  a=("$1")                                      ## put first argument in array for initial comparison
+  shift                                         ## remove first argument
+  for e; do                                     ## for each of the remaining arguments…
+    if [ "$e" \< "${a[0]}" ]; then              ## does it precede the first element?
+      a=("$e" "${a[@]}")                        ## if yes, put it first
+    elif [ "$e" \> "${a[${#a[@]} - 1]}" ]; then ## if no, does it go at the end?
+      a=("${a[@]}" "$e")                        ## if yes, put it at the end
+    else                                        ## otherwise,
+      n=0
+      while [ "${a[$n]}" \< "$e" ]; do ## find where it goes
+        n=$(($n + 1))
+      done
+      a=("${a[@]:0:n}" "$e" "${a[@]:n}") ## and put it there
+    fi
+  done
+  printf "%s\n" "${a[@]}"
+}
